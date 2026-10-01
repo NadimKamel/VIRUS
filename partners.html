@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SU — Our Partners</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================================
+           PARTNERS PAGE
+        ========================================= */
+
+        .partner-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: -20px auto 50px;
+            color: var(--muted);
+        }
+
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .partner {
+            height: 170px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 30px;
+
+            border: 1px solid var(--whiteLine);
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.045),
+                    rgba(255,255,255,.015)
+                );
+
+            position: relative;
+            overflow: hidden;
+
+            transition:
+                transform .3s ease,
+                border-color .3s ease,
+                box-shadow .3s ease;
+        }
+
+        /* Green glow */
+
+        .partner::before {
+            content: "";
+
+            position: absolute;
+
+            width: 120px;
+            height: 120px;
+
+            border-radius: 50%;
+
+            background: rgba(112,225,96,.09);
+
+            filter: blur(25px);
+
+            opacity: 0;
+
+            transition: opacity .3s ease;
+        }
+
+        /* Logo */
+
+        .partner img {
+            position: relative;
+            z-index: 2;
+
+            width: 100%;
+            height: 100%;
+
+            max-width: 190px;
+            max-height: 95px;
+
+            object-fit: contain;
+
+            opacity: .72;
+
+            filter: grayscale(100%);
+
+            transition:
+                transform .35s ease,
+                opacity .35s ease,
+                filter .35s ease;
+        }
+
+        /* Hover */
+
+        .partner:hover {
+            transform: translateY(-7px);
+
+            border-color: var(--green);
+
+            box-shadow:
+                0 18px 45px rgba(112,225,96,.08);
+        }
+
+        .partner:hover::before {
+            opacity: 1;
+        }
+
+        .partner:hover img {
+            opacity: 1;
+
+            filter: grayscale(0%);
+
+            transform: scale(1.07);
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 1000px) {
+
+            .partner-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 750px) {
+
+            .partner-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .partner {
+                height: 150px;
+                padding: 25px;
+            }
+
+        }
+
+
+        @media (max-width: 480px) {
+
+            .partner-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .partner {
+                height: 155px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     NAVBAR
+========================================= -->
+
+<nav class="navbar">
+
+    <div class="container nav-inner">
+
+        <a class="nav-logo" href="index.html">
+
+            <img
+                src="logo.png"
+                alt="Virus Student Union"
+            >
+
+        </a>
+
+
+        <button
+            class="menu-btn"
+            aria-label="Open menu"
+        >
+            ☰
+        </button>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="memories.html">
+                Memories
+            </a>
+
+            <a href="board.html">
+                Our Board
+            </a>
+
+            <a
+                href="partners.html"
+                class="active"
+            >
+                Our Partners
+            </a>
+
+            <a
+                href="contact.html"
+                class="nav-cta"
+            >
+                Contact Us
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================================
+     MAIN
+========================================= -->
+
+<main>
+
+
+    <!-- =====================================
+         PAGE HEADER
+    ====================================== -->
+
+    <section class="page-head">
+
+        <div class="container reveal">
+
+            <div class="eyebrow">
+                Built together
+            </div>
+
+
+            <h1>
+                Our Partners.
+            </h1>
+
+
+            <p>
+                Collaboration is part of what makes great
+                student experiences possible.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         PARTNERS
+    ====================================== -->
+
+    <section
+        class="section"
+        style="padding-top:10px;"
+    >
+
+        <div class="container">
+
+
+            <p class="partner-intro">
+
+                The organizations and brands we've had
+                the opportunity to collaborate with.
+
+            </p>
+
+
+
+            <div class="partner-grid">
+
+
+                <!-- PARTNER 01 -->
+
+                <div class="partner reveal">
+
+                    <img
+                        src="images/partner-1.png"
+                        alt="Partner 01"
+                    >
+
+                </div>
+
+
+
+                <!-- PARTNER 02 -->
+
+                <div class="partner reveal">
+
+                    <img
+                        src="images/partner-2.png"
+                        alt="Partner 02"
+                    >
+
+                </div>
+
+
+
+                <!-- PARTNER 03 -->
+
+                <div class="partner reveal">
+
+                    <img
+                        src="images/partner-3.png"
+                        alt="Partner 03"
+                    >
+
+                </div>
+
+
+
+                <!-- PARTNER 04 -->
+
+                <div class="partner reveal">
+
+                    <img
+                        src="images/partner-4.png"
+                        alt="Partner 04"
+                    >
+
+                </div>
+
+
+
+                <!-- PARTNER 05 -->
+
+                <div class="partner reveal">
+
+                    <img
+                        src="images/partner-5.png"
+                        alt="Partner 05"
+                    >
+
+                </div>
+
+
+
+                <!-- PARTNER 06 -->
+
+                <div class="partner reveal">
+
+                    <img
+                        src="images/partner-6.png"
+                        alt="Partner 06"
+                    >
+
+                </div>
+
+
+
+                <!-- PARTNER 07 -->
+
+                <div class="partner reveal">
+
+                    <img
+                        src="images/partner-7.png"
+                        alt="Partner 07"
+                    >
+
+                </div>
+
+
+
+                <!-- PARTNER 08 -->
+
+                <div class="partner reveal">
+
+                    <img
+                        src="images/partner-8.png"
+                        alt="Partner 08"
+                    >
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+    <div class="container footer-inner">
+
+
+        <img
+            class="footer-logo"
+            src="logo.png"
+            alt="Virus Student Union"
+        >
+
+
+        <div class="footer-copy">
+
+            © <span data-year></span>
+            Student Union. All rights reserved.
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="memories.html">
+                Memories
+            </a>
+
+            <a href="board.html">
+                Board
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
+
+
+    </div>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

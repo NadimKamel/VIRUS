@@ -82,6 +82,313 @@ footer{border-top:1px solid var(--whiteLine);margin-top:80px;padding:30px 0;back
 
 .reveal{opacity:0;transform:translateY(24px);transition:.7s ease}.reveal.show{opacity:1;transform:none}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}@keyframes marquee{to{transform:translateX(-50%)}}
+/* =========================================
+   JOIN US FLOATING WIDGET
+========================================= */
+
+.join-widget {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 9998;
+    font-family: inherit;
+}
+
+/* Small floating button */
+
+.join-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    height: 48px;
+    padding: 0 18px;
+
+    border: 1px solid rgba(112, 225, 96, .35);
+    border-radius: 999px;
+
+    background: rgba(12, 14, 13, .92);
+    backdrop-filter: blur(14px);
+
+    color: #fff;
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.25);
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        background .25s ease;
+}
+
+.join-toggle:hover {
+    transform: translateY(-3px);
+    border-color: #70E160;
+    background: #111511;
+}
+
+/* Green dot */
+
+.join-dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #70E160;
+
+    box-shadow:
+        0 0 0 5px rgba(112,225,96,.10),
+        0 0 15px rgba(112,225,96,.45);
+}
+
+/* =========================================
+   JOIN CARD
+========================================= */
+
+.join-card {
+    position: absolute;
+
+    right: 0;
+    bottom: 62px;
+
+    width: 330px;
+
+    padding: 26px;
+
+    border-radius: 22px;
+
+    border: 1px solid rgba(255,255,255,.10);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24,27,25,.98),
+            rgba(10,12,11,.98)
+        );
+
+    backdrop-filter: blur(22px);
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.45);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform:
+        translateY(12px)
+        scale(.96);
+
+    transform-origin: bottom right;
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease,
+        visibility .25s ease;
+}
+
+.join-widget.open .join-card {
+    opacity: 1;
+    visibility: visible;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+/* =========================================
+   CARD CLOSE
+========================================= */
+
+.join-close {
+    position: absolute;
+
+    top: 14px;
+    right: 14px;
+
+    width: 30px;
+    height: 30px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    background: rgba(255,255,255,.05);
+
+    color: #aaa;
+
+    font-size: 17px;
+
+    display: grid;
+    place-items: center;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.join-close:hover {
+    background: #70E160;
+    color: #071008;
+    border-color: #70E160;
+}
+
+/* =========================================
+   CARD CONTENT
+========================================= */
+
+.join-eyebrow {
+    color: #70E160;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: .16em;
+    text-transform: uppercase;
+
+    margin-bottom: 10px;
+}
+
+.join-card h3 {
+    margin: 0 35px 8px 0;
+
+    color: #fff;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 26px;
+    line-height: 1.05;
+}
+
+.join-description {
+    margin: 0 0 20px;
+
+    color: #9b9da0;
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* =========================================
+   BENEFITS
+========================================= */
+
+.join-benefits {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-bottom: 22px;
+}
+
+.join-benefit {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    color: #e7e7e7;
+
+    font-size: 12px;
+}
+
+.join-number {
+    width: 25px;
+    height: 25px;
+
+    flex: 0 0 25px;
+
+    border-radius: 50%;
+
+    display: grid;
+    place-items: center;
+
+    background: rgba(112,225,96,.08);
+
+    border: 1px solid rgba(112,225,96,.18);
+
+    color: #70E160;
+
+    font-size: 9px;
+    font-weight: 800;
+}
+
+/* =========================================
+   APPLY BUTTON
+========================================= */
+
+.join-apply {
+    width: 100%;
+
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: #70E160;
+
+    color: #071008;
+
+    text-decoration: none;
+
+    font-size: 11px;
+    font-weight: 900;
+
+    letter-spacing: .12em;
+    text-transform: uppercase;
+
+    transition:
+        transform .2s ease,
+        background .2s ease;
+}
+
+.join-apply:hover {
+    transform: translateY(-2px);
+
+    background: #83ef73;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:520px) {
+
+    .join-widget {
+        right: 14px;
+        bottom: 14px;
+    }
+
+    .join-card {
+        right: 0;
+        bottom: 60px;
+
+        width: min(330px, calc(100vw - 28px));
+
+        padding: 22px;
+    }
+
+    .join-toggle {
+        height: 44px;
+
+        padding: 0 15px;
+
+        font-size: 10px;
+    }
+
+}
 
 @media(max-width:850px){.nav-links{display:none;position:absolute;top:82px;left:4%;right:4%;padding:12px;background:rgba(12,8,17,.98);border:1px solid var(--whiteLine);border-radius:16px;flex-direction:column;align-items:stretch}.nav-links.open{display:flex}.nav-links .nav-cta{margin-left:0;text-align:center}.menu-btn{display:block}.hero{padding-top:130px}.hero-bottom{grid-template-columns:1fr}.hero-stat{border-right:0;border-bottom:1px solid var(--whiteLine)}.hero-stat:last-child{border-bottom:0}.cards,.partner-grid{grid-template-columns:1fr 1fr}.memory:nth-child(n){grid-column:span 6}.contact-grid{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:12px}}
 @media(max-width:560px){.nav-inner{height:72px}.nav-links{top:72px}.hero h1{font-size:49px}.hero-logo{width:240px}.cards,.partner-grid{grid-template-columns:1fr}.memory:nth-child(n){grid-column:span 12;min-height:300px}.page-head{padding-top:135px}.section{padding:75px 0}.footer-inner{flex-direction:column;text-align:center}.footer-links{justify-content:center}}

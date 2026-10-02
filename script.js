@@ -422,7 +422,7 @@ document.addEventListener("DOMContentLoaded", () => {
             month: "OCT",
             title: "Sports Day",
             time: "10:00 AM",
-            location: "Sports Field"
+            location: "Nosor Club"
         }
 
         // Add more events here

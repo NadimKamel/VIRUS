@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1199,42 +1199,3 @@ imageWrapper.addEventListener(
 
 </body>
 </html>
-```
-
-### طريقة إضافة صور كل Event
-
-أهم جزء هو ده:
-
-```javascript
-leaders: {
-
-    title: "Leaders League",
-
-    category: "Community",
-
-    images: [
-        "images/memory-01.jpg",
-        "images/memory-01-2.jpg",
-        "images/memory-01-3.jpg",
-        "images/memory-01-4.jpg",
-        "images/memory-01-5.jpg"
-    ]
-
-},
-```
-
-يعني في فولدر `images` تحط:
-
-```text
-memory-01.jpg
-memory-01-2.jpg
-memory-01-3.jpg
-memory-01-4.jpg
-memory-01-5.jpg
-```
-
-ولما تدوس على **Leaders League**، كل الخمس صور يبقوا مربوطين بنفس الـEvent.
-
-**ومش محتاج تعدل `script.js` الأساسي**؛ أنا خليت كود الـgallery داخل `memories.html` عشان ما يأثرش على الـnavbar والـreveal الموجودين في باقي الموقع. الـ`script.js` الحالي مسؤول أصلًا عن الـnavbar والـscroll/reveal والـyear.
-
-ولو عندك مثلًا **10 Events وكل Event له عدد صور مختلف**، عادي جدًا؛ كل Event ياخد عدد الصور الخاص بيه.

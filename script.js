@@ -667,3 +667,51 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 });
+
+/* =========================================
+   DISABLE RIGHT CLICK
+========================================= */
+
+document.addEventListener("contextmenu", function (event) {
+    event.preventDefault();
+});
+
+
+/* =========================================
+   DISABLE COMMON DEVTOOLS SHORTCUTS
+========================================= */
+
+document.addEventListener("keydown", function (event) {
+
+    // F12
+    if (event.key === "F12") {
+        event.preventDefault();
+    }
+
+    // Ctrl + Shift + I
+    if (
+        event.ctrlKey &&
+        event.shiftKey &&
+        event.key.toLowerCase() === "i"
+    ) {
+        event.preventDefault();
+    }
+
+    // Ctrl + Shift + J
+    if (
+        event.ctrlKey &&
+        event.shiftKey &&
+        event.key.toLowerCase() === "j"
+    ) {
+        event.preventDefault();
+    }
+
+    // Ctrl + U
+    if (
+        event.ctrlKey &&
+        event.key.toLowerCase() === "u"
+    ) {
+        event.preventDefault();
+    }
+
+});

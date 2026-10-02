@@ -400,3 +400,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+
+const semesterEvents = [
+    {
+        date: "OCT 01",
+        title: "Opening",
+        time: "10:00 AM",
+        location: "Campus"
+    },
+    {
+        date: "OCT 20",
+        title: "Sports Day",
+        time: "10:00 AM",
+        location: "Sports Field"
+    }
+];

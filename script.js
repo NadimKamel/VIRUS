@@ -312,9 +312,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     in plain sight.
                 </p>
 
-                <button class="easter-close">
-                    Continue exploring →
-                </button>
+            <a
+    href="memories.html"
+    class="easter-close"
+>
+    Continue exploring →
+</a>
 
             </div>
 

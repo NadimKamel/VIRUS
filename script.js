@@ -401,17 +401,269 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-const semesterEvents = [
-    {
-        date: "OCT 01",
-        title: "Opening",
-        time: "10:00 AM",
-        location: "Campus"
-    },
-    {
-        date: "OCT 20",
-        title: "Sports Day",
-        time: "10:00 AM",
-        location: "Sports Field"
+/* =========================================
+   📅 SEMESTER CALENDAR
+========================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const semesterEvents = [
+
+        {
+            date: "01",
+            month: "OCT",
+            title: "Opening",
+            time: "10:00 AM",
+            location: "Campus"
+        },
+
+        {
+            date: "20",
+            month: "OCT",
+            title: "Sports Day",
+            time: "10:00 AM",
+            location: "Sports Field"
+        }
+
+        // Add more events here
+        // Example:
+        //
+        // {
+        //     date: "05",
+        //     month: "NOV",
+        //     title: "Workshop",
+        //     time: "04:00 PM",
+        //     location: "Lab 3"
+        // }
+
+    ];
+
+
+    /* =========================================
+       CREATE WIDGET
+    ========================================= */
+
+    const calendarWidget =
+        document.createElement("div");
+
+    calendarWidget.className =
+        "calendar-widget";
+
+
+    calendarWidget.innerHTML = `
+
+        <!-- Calendar Button -->
+
+        <button
+            class="calendar-toggle"
+            aria-label="Open semester calendar"
+            aria-expanded="false"
+        >
+
+            <span class="calendar-icon">
+                <span></span>
+            </span>
+
+            <span>
+                Calendar
+            </span>
+
+        </button>
+
+
+        <!-- Calendar Card -->
+
+        <div
+            class="calendar-card"
+            role="dialog"
+            aria-label="Semester Calendar"
+        >
+
+            <button
+                class="calendar-close"
+                aria-label="Close calendar"
+            >
+                ×
+            </button>
+
+
+            <div class="calendar-eyebrow">
+                Semester 2026 / 2027
+            </div>
+
+
+            <h3>
+                Semester<br>
+                Calendar.
+            </h3>
+
+
+            <div class="calendar-list">
+
+                ${semesterEvents.map(event => `
+
+                    <div class="calendar-event">
+
+                        <div class="calendar-date">
+
+                            <strong>
+                                ${event.date}
+                            </strong>
+
+                            <span>
+                                ${event.month}
+                            </span>
+
+                        </div>
+
+
+                        <div class="calendar-event-info">
+
+                            <h4>
+                                ${event.title}
+                            </h4>
+
+                            <p>
+                                ${event.time}
+                                <span>•</span>
+                                ${event.location}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                `).join("")}
+
+            </div>
+
+
+            <div class="calendar-footer">
+                More events coming soon.
+            </div>
+
+        </div>
+
+    `;
+
+
+    /*
+        Add BEFORE Join Us widget
+    */
+
+    const joinWidget =
+        document.querySelector(".join-widget");
+
+    if (joinWidget) {
+
+        joinWidget.parentNode.insertBefore(
+            calendarWidget,
+            joinWidget
+        );
+
+    } else {
+
+        document.body.appendChild(
+            calendarWidget
+        );
+
     }
-];
+
+
+    /* =========================================
+       ELEMENTS
+    ========================================= */
+
+    const toggle =
+        calendarWidget.querySelector(
+            ".calendar-toggle"
+        );
+
+    const close =
+        calendarWidget.querySelector(
+            ".calendar-close"
+        );
+
+
+    /* =========================================
+       OPEN / CLOSE
+    ========================================= */
+
+    toggle.addEventListener("click", () => {
+
+        const isOpen =
+            calendarWidget.classList.toggle(
+                "open"
+            );
+
+        toggle.setAttribute(
+            "aria-expanded",
+            isOpen
+        );
+
+    });
+
+
+    close.addEventListener("click", () => {
+
+        closeCalendar();
+
+    });
+
+
+    function closeCalendar() {
+
+        calendarWidget.classList.remove(
+            "open"
+        );
+
+        toggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+    }
+
+
+    /* =========================================
+       CLICK OUTSIDE
+    ========================================= */
+
+    document.addEventListener(
+        "click",
+        event => {
+
+            if (
+                !calendarWidget.contains(
+                    event.target
+                )
+            ) {
+
+                closeCalendar();
+
+            }
+
+        }
+    );
+
+
+    /* =========================================
+       ESC
+    ========================================= */
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.key === "Escape"
+            ) {
+
+                closeCalendar();
+
+            }
+
+        }
+    );
+
+});

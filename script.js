@@ -224,3 +224,176 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+/* =========================================
+   🌐 EASTER EGG
+   Click the logo 5 times
+========================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const logo = document.querySelector(".nav-logo");
+
+    if (!logo) return;
+
+    let clickCount = 0;
+    let clickTimer = null;
+
+    logo.addEventListener("click", (event) => {
+
+        // Prevent navigating to home
+        event.preventDefault();
+
+        clickCount++;
+
+        // Reset if the 5 clicks take too long
+        clearTimeout(clickTimer);
+
+        clickTimer = setTimeout(() => {
+            clickCount = 0;
+        }, 1800);
+
+
+        // Small logo animation
+        logo.classList.remove("easter-shake");
+
+        void logo.offsetWidth;
+
+        logo.classList.add("easter-shake");
+
+
+        // Activate after 5 clicks
+        if (clickCount >= 5) {
+
+            clickCount = 0;
+
+            clearTimeout(clickTimer);
+
+            showEasterEgg();
+
+        }
+
+    });
+
+
+    function showEasterEgg() {
+
+        // Prevent multiple overlays
+        if (document.querySelector(".easter-overlay")) return;
+
+
+        const overlay =
+            document.createElement("div");
+
+        overlay.className =
+            "easter-overlay";
+
+
+        overlay.innerHTML = `
+
+            <div class="easter-content">
+
+                <div class="easter-stars">
+                    <span>✦</span>
+                    <span>✦</span>
+                    <span>✦</span>
+                </div>
+
+                <div class="easter-small">
+                    YOU FOUND US
+                </div>
+
+                <h2>
+                    👀
+                </h2>
+
+                <p>
+                    Some memories are hidden
+                    in plain sight.
+                </p>
+
+                <button class="easter-close">
+                    Continue exploring →
+                </button>
+
+            </div>
+
+        `;
+
+
+        document.body.appendChild(overlay);
+
+
+        // Trigger animation
+        requestAnimationFrame(() => {
+            overlay.classList.add("show");
+        });
+
+
+        // Close button
+        const closeButton =
+            overlay.querySelector(".easter-close");
+
+
+        closeButton.addEventListener(
+            "click",
+            closeEasterEgg
+        );
+
+
+        // Click outside
+        overlay.addEventListener(
+            "click",
+            (event) => {
+
+                if (
+                    event.target === overlay
+                ) {
+
+                    closeEasterEgg();
+
+                }
+
+            }
+        );
+
+
+        // ESC
+        const escapeHandler =
+            (event) => {
+
+                if(event.key === "Escape") {
+
+                    closeEasterEgg();
+
+                }
+
+            };
+
+
+        document.addEventListener(
+            "keydown",
+            escapeHandler
+        );
+
+
+        function closeEasterEgg() {
+
+            overlay.classList.remove("show");
+
+            setTimeout(() => {
+
+                overlay.remove();
+
+                document.removeEventListener(
+                    "keydown",
+                    escapeHandler
+                );
+
+            }, 300);
+
+        }
+
+    }
+
+});
